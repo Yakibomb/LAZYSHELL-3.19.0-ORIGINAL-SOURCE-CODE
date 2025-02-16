@@ -1,0 +1,1220 @@
+Major changes/additions are indicated by ***
+
+v3.19.0 (2013-01-22)
+--------------------------------------
+Changes:
+*Now allows user to load any ROM file, with a warning
+*Restore elements node "Main Title" renamed to "Intro"
+*Selection marching ant timers no longer run infinitely in background
+*Dialogue: palette for disabled menu items (dark blue) now editable
+
+Fixes:
+*Sometimes crashed when creating selection because of dash offset
+*Audio: score viewer shouldn't be enabled if sound effect loaded
+*Audio: only set percussive pitch if reading notes when MML importing
+*Dialogue: not reading pointer when compressing/saving menu palettes
+*History: crash if using mouse/keyboard at same time in listboxes
+*Levels: crash if drag solidity tile & solid mods enabled but no mods
+*Levels: deleting selection in solid mod not saving to undo history
+*Levels: rapidly ctrl+clicking tiles to select in tileset creates lag
+*Levels: crash when toggle layers, try to redraw tilemod maps b/c null
+*Mini-games: crash if edit tilemap b/c reading from null levels form
+*Monsters: ignoring user-set target in "If target affected" commands
+*Monsters: ignoring user-set "Do Nothing" for "Do 1 of 3" commands
+*Sprites: crash if moving through sequences while clicking sometimes
+
+
+v3.18.4 (2013-08-26)
+--------------------------------------
+Additions:
+*Audio: can now adjust sample rel freq by half/full pitch amount
+
+Changes:
+*Image drawing code now safer and much faster
+*Audio: loop start value now divided by 9 for greater precision
+
+Fixes:
+*Never removed header after save b/c romLength not being updated
+*Some problems with new history logging format, dragging objects
+*Nearly all editors asking to save during close even after saving
+*Audio: score vscrollbar not staying put when writing music
+*Audio: crash if try to open hex editor b/c passing HiRom offset
+
+
+v3.18.3 (2013-08-16)
+--------------------------------------
+Changes:
+*History logging now more practical, loading times now faster
+
+Fixes:
+*Graphics Editor: crash when making selection < 4 pixels wide/high
+*Graphics Editor: not nulling selection when delselecting
+
+
+v3.18.1 (2013-07-30)
+--------------------------------------
+Additions:
+*Audio: move back/forth between notes with arrow keys
+
+Changes:
+*Now recalculates checksum when saving a modified ROM
+
+Fixes:
+*Effect: again, the mold image losing focus when keydown
+*Levels: tile editor loading tile 0 if doing auto-update
+*Sprites: yet again the mold image losing focus when keydown
+
+
+v3.18.0 (2013-07-21)
+--------------------------------------
+Additions:
+*Undo/redo support added for world maps, battlefields, battlescripts
+*Event Scripts: added commands 0x3E and 0x3F to action commands
+*Previewer: enable battle debug menu access when previewing
+*Sprites: NPC packet editor added, access w/button at top of window
+
+Changes:
+*Selection box now drawn in "marching ants" style, one pixel wide
+*Dialogues: replaced font character editor w/docked graphics editor
+
+Fixes:
+*Restore elements restoring ROM from source even if OK not clicked
+*Dialogues: several issues paint editing the horizontal triangles
+*Hex Editor: enlarging window when at end of ROM threw exception
+*Intro: modifying graphics not updating main title for undo/redo
+*Levels: erasing tiles when BG is off using BG color & not checkers
+*Monsters: clearing battlescripts doubling size of counter commands
+*Sprites: shouldn't be pushing command if nothing actually changed
+
+
+v3.17.0 (2013-06-23)
+--------------------------------------
+Additions:
+*Many key shortcuts added for paint features in several editors
+*Zooming with mouse wheel and key shortcut feature supported
+*Zoom box added to effects editor and graphics editor
+*Event Scripts: undo/redo support added
+*Formations: undo/redo for monster coord adjustment
+*Graphics Editor: button to switch fore and back colors in swatch
+*Graphics Editor: adjust size of brush, up to 16 pixels
+*Graphics Editor: undo/redo support added to the paint editing
+*Graphics Editor: select, cut, copy, paste, delete support added
+*Levels: Ctrl+click a tile to select it in the tileset
+
+Changes:
+*Main window loads introductory information from help/readme file
+*Added mirror/invert buttons for sidebars of various tileset editors
+*Effects: undo/redo now groups tiles drawn/erased in same mouse drag
+*Graphics Editor: drawing w/transparent color now behaves like eraser
+*Levels: undo/redo now groups tiles drawn/erased in same mouse drag
+
+Fixes:
+*Mirror/invert tileset tiles was clearing the selection box
+*Effects: image controls not updating when changing image #
+*Graphics Editor: replace color not updating graphics image correctly
+*Levels: maximum wrong for some NumericUpDown controls in MAPS tab
+*Levels: erasing when editing all layers not checking if tiles empty
+*Levels: exporting to battlefield tileset not serializing battlefield
+*Levels: crash if undo/redo solid mod if no edits done at all
+*Menus: menu texts were encoding/decoding as description type
+*Palette Editor: palette effects not updating if checked colors changed
+*Palette Editor: brightness adjustment not setting ceiling to 248
+*Project: reset not working properly for element lists
+*Project: element list index description not loading/saving at all
+*Sprites: issues with undo/redo when changing mold indexes
+*Sprites: free space label not updating when changing animation #
+
+
+v3.16.1 (2013-06-16)
+--------------------------------------
+Additions:
+*History log now includes numbers & names of the current element index
+
+Fixes:
+*Animations: crash if enable help tips and mouseover bottom toolstrip
+*Audio: crash if label editor try to refresh non-music type index > 79
+*Project: crash if try to add element to notes and nothing selected
+*Project: crash if try to import or export current list
+
+
+v3.16.0 (2013-04-15)
+--------------------------------------
+Additions:
+*Audio: score writer can now add notes/rests with user-defined ticks
+*Audio: score viewer & writer now both have key signature support
+*Audio: score writer now has cut/copy/paste/delete/select support
+*Audio: score viewer now has editing support just like writer
+*Intro: editor for opening credits sequence
+*Sprites: undo/redo added for mold editor
+
+Changes
+*Intro: changed "Main Title" text to "Intro"
+
+Fixes:
+*Animations: crash if try to edit non-battle event element's label
+*Audio: importing directory of SPCs crashes if any indexes empty
+*Audio: score writer not configuring octaves in .txt export format
+*Audio: score writer crash if write note after undo/redo before MouseMove
+*Audio: score writer not hiliting notes for staff indexes 2+ when needed
+*Dialogues: fixed pagination issues with preview during text editing
+*Dialogues: font keystrokes table visible if triangles selected
+*Graphics Editor: crash if filling irregular, non-rectangular graphics
+*Levels: new tile mod coords not figuring in zoom factor before setting
+*Project: save dialog still had old .lsnotes format option to save as
+*Sprites: mold image not repainting if zoom box disabled when dragging
+
+
+v3.15.1 (2013-01-01)
+--------------------------------------
+Fixes:
+*Description keystrokes had "h" for "3"
+*Event Scripts: clear function not updating pointers/offsets at all
+*Event Scripts: import function not updating pointers/offsets at all
+*Event Scripts: deleting checked commands really slow b/c each updating
+*Levels: not triggering "MouseUp" event for "Find in tileset"
+*Patches: no longer crashes when trying to apply a patch
+
+
+v3.15.0 (2012-11-24)
+--------------------------------------
+Additions:
+***New project database manager replaces old notes manager***
+*Context menus added to most editors to edit label and/or add to project
+*Animations: command list to choose from to replace existing command(s)
+*Animations: undo/redo feature added
+*Animations: added support for a few more commands
+*Audio: search sample names feature added
+*Event Scripts: added support for several more commands
+*Event Scripts: editing a command now highlights command in list
+*Menus: option to change X coord of texts in overworld status menu
+*Monsters: dump battle script text feature added
+*Sprites: new support exporting sequences to animated GIFS
+
+Changes:
+*Renamed and reorganized all classes and elements in classes
+*Renamed and moved around a few GUI controls/labels
+*Animations: now only shows controls relevant to selected command
+*Dialogues: font tables all same size, keystroke fields changed to table
+*Event Scripts: now only shows controls relevant to selected command
+*Event Scripts: reorganized and renamed most commands, more interactive
+*Monsters: now only shows controls relevant to selected command
+
+Fixes:
+*Changing commands in scripts editors now much cleaner, less flickering
+*Audio: growling command not loading opcode to numeric control
+*Audio: ties not being sized correctly if note spacing not 100%
+*Dialogues: no text view labels for some symbols creates "ERROR: " message
+*Event Scripts: inserting a new command multiple times not de-referencing
+*Event Scripts: audio commands not tagged with correct index count
+*Event Scripts: some category lists crash if selected last commands
+*Event Scripts: crash when reset if selected command > old script size
+*Hex editor: crash if try to go to address when cursor at offset 0
+*Import Elements: menu pointers, sequences not written into import code
+*Levels: crash when undo/redo if solid mods enabled on level w/o any
+*Levels: mouseDownTile not resetting when tileset subwindow reloaded
+*Menus: crash when set select game menu sprite to sequence with 0 frames
+*Mini-games: palette not updating for side-scroller canyon background
+*Previewer: previewing event from entrance event setting has no event
+*Previewer: level 3 is no longer corrupted when previewing
+*Sprites: fixed incorrect boundaries of sequence frame images
+*Sprites: crash if change X,Y if more than 1 tile selected
+*Sprites: crash if paste when nothing copied
+*Sprites: importing images as molds should've been ignoring empty tiles
+
+
+v3.14.0 (2012-09-24)
+--------------------------------------
+Additions:
+***NEW Help Database in XML format created***
+*Animations: expand/collapse all nodes in treeview
+*Audio: undo/redo for score writer
+*Audio: now shows ties for hold notes for score viewer/writer
+
+Changes:
+*Updated import elements from another ROM to newer interface
+*Updated help tooltips, now uses XML in resources
+*Dialogues: font table's letter index label now fixed below
+*Dialogues: importing, encoding dialogues now 5x faster
+*Sprites: sequence frames and playback are now cropped
+
+Fixes:
+*Graphics editor wasn't importing images relative to user-adjusted width
+*Forgot to set cursors to NewCursors class, graphics editor crashed
+*Keystrokes should have had 256 indexes to prevent out of bounds crash
+*Audio: score writer was writing rests for B# and not C
+*Audio: play SFX command not loading correct lists for battle/event SFX
+*Audio: crash if import MML into cleared SPC
+*Dialogues: not writing pointers to DTE correctly when saving
+*Dialogues: applying DTE changes not decoding from *old* DTE to new DTE
+*Monsters: psychopath buttons disappeared off toolstrip
+*Monsters: pause frames button not doing anything
+*Spells: spell descriptions not using description keystrokes table
+
+
+v3.13.0 (2012-09-07)
+--------------------------------------
+Additions:
+*Several new icons added for context menus and toolstrips
+*Audio: score maker for SPC editor
+*Audio: copy, paste, duplicate track commands
+*Audio: import MML format documents/files
+*Audio: documentation and added support for almost all commands
+*Audio: score viewer now more versatile, accurate, ornamented
+*Audio: channel track viewer shows icons for more commands
+*Audio: option to export/import samples in raw BRR format
+*Events: two new commands for reading audio memory
+
+Changes:
+*Application filesize 800kb smaller b/c removed all local resources
+*Attacks: icon shouldn't be changeable for attacks past index 63
+*Audio: moved score view to the left, interactive with channel tracks
+*Sprites: imported tileset image now synchronized with current mold tiles
+
+Fixes:
+*Audio: mouseOverChannel was minimized to 2 and not 1 for non-SPCs
+*Audio: clearing spc was disabling percussives groupbox and checkboxes
+*Audio: channel checkboxes 2-7 shouldn't be visible for SFX
+*Audio: importing not closing import dialog window
+*Audio: beat note names not entirely accurate, ie. triplets
+*Audio: not resetting SPC data length when assembling SPC data
+*Audio: base pitch should have been C, not A
+*Dialogues: keystrokes for menu font table lost final index
+*Dialogues: importing bad b/c of conditional braces not in right place
+*Effects: not clearing selection after changing size
+*Effects: crash when drawing tile group beyond mold boundaries
+
+
+v3.12.0 (2012-08-26)
+--------------------------------------
+Additions:
+***SPC instrument and track editor***
+*Animations: added support for one more command (bonus message)
+*Audio: samples are labled with instrument/sound fx names
+*Audio: infinite loop playback for samples
+*Dialogues: can now edit battle menu graphics/numerals
+*Dialogues: can now edit flower bonus message text
+*Formations: move up/down monster in formation monster list
+*Formations: select and drag several monsters at once
+*Sprites: copy/paste added for frame editing
+*Sprites: multi-select frames
+
+Changes:
+*Reorganized tab order of controls
+*Now uses icon images for right-click context menu items
+*Audio: sample rate options closer to SPC settings
+*Monsters: option to set flower bonus to nothing
+
+Fixes:
+*Formations: changing coords not resetting object location pixels
+*Levels: hilite hover solidity tiles not at correct coords if zoomed in
+*Menus: save event handler got reset
+*Menus: changing cursor sprite indexes not prompting for save
+*Sprites: drawing multiple selected tiles from tileset not working
+*Sprites: not unchecking toolstrip button when selecting different mold
+*Sprites: import images to molds not always padding for tilemaps
+
+
+v3.11.1 (2012-08-12)
+--------------------------------------
+Additions:
+*Dialogue: two new compression table indexes
+*Menus: sprite cursor included in preview image
+*Menus: load text in text editor by clicking on preview image
+
+Changes:
+*Levels: NPC sprites now draw to exact perfect coordinates
+*Menus: combined overworld and game select panels into one
+*Monsters: battlescript command list sorted alphabetically
+*Sprites: can now import more than 1 tile into tileset at once
+*Sprites: sequence list names displayed as functions for monster sprites
+
+Fixes:
+*Crash if draw sprite w/1+ palette index in several editors
+*Opening all editors at once not opening menus or mini-games
+*Animations: scrollbar was still moving when editing commands
+*Effects: frame duration should have a minimum of 1
+*Items: crash if first loaded item has no description
+*Levels: wrong behavior when loading preview
+*Levels: previewer nulling entrance event for levels
+*Levels: layer 3 tileset should be twice as big, some levels crashing
+*Levels: dropper not selecting correct color if clicking layer 3 pixel
+*Menus: sprites in overworld menu not using correct index/sequence
+*Menus: changing mono/stereo graphics not updating the image
+*Palettes: greyscale not isolating top 5 bits of colors
+*Sprites: frame duration should have a minimum of 1
+
+
+v3.11.0 (2012-08-05)
+--------------------------------------
+Additions:
+*Color replacing tool in graphic editor
+*Option to click "Retry" if load ROM attempt failed
+*Added icon images to dropdownbutton toolstripitems
+*Dialogues: option to edit battle numeral graphics, palettes
+*Events: added a few new command(s)
+*Formations: monster shadows, isometric grid, show/hide ally sprites
+*Formations: snap to guides for moving monsters
+*Levels: holding shift key on map hilites tile index in tileset
+*Menus: shop menu's background palette can now be edited
+*Menus: menu text and dialogue can now be edited
+*Menus: option to preview each of the 11 different menus
+*Menus: can now edit sprite used by cursors in game select menu
+*Menus: save image, finished import image code for game select menu
+*Mini-games: four rail tile types color-coded to aid map building
+*Mini-games: previewer for all four levels
+*Mini-games: set starting X,Y coord for Mode7 stages
+*Sprites: can now save tileset images of tilemap format molds too
+*Sprites: import image into tileset for tilemap format molds too
+*Sprites: import image as new single 16x16 tile into tileset
+*Sprites: instant duplicate a tile with Ctrl+click/drag
+*World Maps: ability to view and modify logos and banners
+
+Changes:
+*Selection box easier to see if grid enabled
+*Zoom panels now more accurate, synchronized with zoom factor
+*Save as now stores saved file path to MRU list
+*Main title,menus,world map editors load a little faster
+*Spell and item description frames now drawn translucent like in-game
+*Formations: event control now a combobox with event descriptions
+*Main Title: now uses universal tileset editor to edit tileset
+*Menus: dynamic recompression creates more space
+*Mini-games: cutting, deleting, erasing replaces Mode7 tiles with 0x4F
+*Sprites: changed coordinator to square b/c more practical
+*Sprites: selecting tiles in map now has pixel-perfect precision
+*Sprites: pixel grid no longer creates lag in mold image
+
+Fixes:
+*Coord label in sprites & effects was flickering b/c of docking
+*Open/close/restore all editors not working for mini-games & menus
+*Color reduction in imported images not isolating top 5 bits of RGB colors
+*Dialogues: problems importing dialogues with different text viewing status
+*Events: clear, reset, clear reads tree nodes, but w/empty script
+*Events: wrong command inserted w/insert button if command being edited
+*Events: sync updating duplicated commands inserted from edited command
+*Levels: conflicts between toggle minecart & levels elements
+*Levels: crash if L3 tab selected when switching to level w/null L3
+*Levels: crash drawing region from tileset beyond boundaries of tilemap
+*Levels: not resetting NPC images after duplicating NPC
+*Levels: using Ctrl to quick copy solidity tiles wasn't always working
+*Main Title: checksum not generating b/c not serialized tileset
+*Menus: several palettes weren't updating
+*Menus: editing certain graphics not updating images for both menus
+*Menus: loading/saving frame palette from completely wrong offset
+*Menus: cursor graphics assembly code wasn't written at all
+*Menus: loading/saving game select BG palette from wrong offset
+*Mini-games: deleting screens code not even written yet
+*Mini-games: removing/adding screens not resetting total image width
+*Mini-games: find in tileset shouldn't ignore transparent in mini-games
+*Mini-games: crash drawing region from tileset beyond boundaries of tilemap
+*Mini-games: crash if try to save minecart tilemap image
+*Mini-games: importing tilemap/tileset not refreshing map/tileset image
+*Notes: trying to create checksum with null notes when opening if no notes
+*Sprites: clearing molds not leaving at least 1 tile in unique tiles
+*Sprites: deleting tiles not decrementing tile index if last tile selected
+*Sprites: coordinator size/location not synchronized to zoom status
+*Sprites: x,y truncation not figuring zoomed mold image size in zoom status
+*Sprites: crash if try to draw a tile when no tiles selected
+*Sprites: crash if bring to front/send to back and no tile(s) selected
+*World Maps: music being saved to game select music
+*World Maps: only 7 world map tilesets, not 9
+
+
+v3.10.0 BETA (2012-07-03)
+--------------------------------------
+Additions:
+***Overworld/game select menu editor***
+***Mine cart mini-game editor***
+*Levels: sprite partitions editing support
+*Levels: a couple new properties to edit in the NPC editor
+*World Maps: option to change world map music track index
+
+Changes:
+*Moved multiple palette/graphics editor buttons into one dropdownbutton
+*Changed colors, appearance of labels and controls in all editors
+*Changed panels to group boxes, removed a lot of unnecessary properties
+*Event Scripts: command category list now combobox to save space
+*Levels: more accurate, relevant descriptions of partition properties
+*Monsters: battle scripts command list now a combobox to save space
+
+Fixes:
+*Menu frames weren't drawing exactly as in game
+*Import into tileset function not setting subtiles as ushorts
+*Battle Scripts: not aligning command panel after deleting command
+*Battlefields: not checking null if tileset import cancelled
+*Dialogues: compression table wasn't even saving!
+*Events: command to add/remove party members incorrectly written
+*Levels: sprites facing south not supposed to be mirrored
+*Levels: moving NPCs up/down not updating sprite image correctly
+*Levels: NPC editor not closing after closing levels
+*Sprites: some sequences empty but actively used in game, so new option
+*Sprites: imported mold images not setting subtiles array to 16
+
+
+v3.9.3 (2012-04-27)
+--------------------------------------
+Additions:
+*Added FAQ and glossary sections to the end of the readme.txt file
+*Dialogues: option to insert font character into battle dialogue
+*Events: goto specific address
+
+Changes:
+*Levels: changed NPC & Partition search toolstrip buttons to label-buttons
+
+Fixes:
+*Some toolstrip comboboxes were hiding buttons in Windows 7 theme
+*Animations: lighter highlights like events and battle scripts
+*Effects: crash when deleting selection beyond boundaries
+*Events: lighter highlights not changed everywhere, affecting pasting
+*Levels: applying changes in NPC editor crashed if no NPCs in level
+*Levels: not checking if null selection when deleting
+*Main Title: crash when deleting selection beyond boundaries
+*Monsters: fixed backcolors on battle script dropdownlists
+*Sprites: if mirrored/inverted, click subtile in tilemap not accurate
+*Sprites: selectedTiles being nulled when clicking drawing buttons
+*World Maps: crash when deleting selection beyond boundaries
+
+
+v3.9.2 (2012-02-06)
+--------------------------------------
+Additions:
+*Effects: looping for moving between frames in sequence editor
+*Events: isolate sound channels command added to event scripts
+*Sprites: looping for moving between frames in sequence editor
+
+Changes:
+*Effects: made sequence panel much wider for easier sequencing
+*Sprites: made sequence panel much wider for easier sequencing
+
+Fixes:
+*Effects: moving between frames caused flicker
+*Events: pointer updating wasn't staying within same bank
+*Events: improved pointer updating, removed unnecessary functions
+*Levels: resetting all components crash b/c not nulling npc images
+*Levels: pasting NPCs crash b/c not nulling npc images
+*Levels: importing architecture not updating L1 tilemap
+*Sprites: moving between frames caused flicker
+
+
+v3.9.1 (2012-01-09)
+--------------------------------------
+Additions:
+*Sprites: manually adjust coords of current/all molds by amount
+
+Fixes:
+*Events: crash if paste action command to blank event script
+*Events: couldn't paste action commands into blank action script
+*Levels: resetting NPCs crash b/c not nulling npc images
+*Sprites: old import feature not updating graphic editor, graphics
+*Sprites: crash when import image into gridplane smaller than size
+*Sprites: maximum subtile value should be 512, not 511
+*Sprites: image(s) to gridplane conversion problems with empty indexes
+*Sprites: if selected mold not 0, crash when import image(s)
+*Sprites: sequence playback immediately stopped if not infinite playback
+*World Maps: changing map point name messed up combobox selected index
+
+
+v3.9.0 (2012-01-01)
+--------------------------------------
+Additions:
+*Option to import battle dialogues, audio, main title from another ROM
+*Dialogues: option to disable/enable syncing of duplicate dialogues
+*Dialogues: textbox backcolor is yellow if duplicate dialogue
+*Effects: x,y pixel coord label below mold image
+*Sprites: import multiple images as molds, auto-create tilemaps
+*Sprites: can use arrow keys to move a selection in mold image
+*Sprites: x,y pixel coord label below mold image
+*Sprites: coordinator on mold image to aid with animating
+*Sprites: infinite playback optional for sequence playback
+*Sprites: can now shift mold indexes back/forward
+*Sprites: available VRAM label warns if mold requires too much VRAM
+*Sprites: send to back or bring to front tiles in a mold
+
+Changes:
+*Included name of application and version # in exception form
+*Dialogues: can now change duplicate dialogues w/o warning
+*Dialogues: pasting font character now sets width as well
+*Effects: shortened left panel to make more room for tile map
+*Effects: shows "invalid mold index" on frame instead of annoying message
+*Sprites: shortened left panel to make more room for tile map
+*Sprites: shows "invalid mold index" on frame instead of annoying message
+
+Fixes:
+*Saving 30-byte palettes was overwriting last color of previous palettes
+*Import elements from another ROM should close/save open editors first
+*Names should be filled with spaces for allies,items,monsters,spells,etc.
+*Event history log now capped to 256 lines b/c memory issues with length
+*Audio: clear function not checking if sample null first
+*Dialogues: copy/pasting a font character was referencing copy buffer
+*Dialogues: changing a character's keystroke not updating settings
+*Effects: mold image scrollbars constantly resetting
+*Levels: clear all components using <= for tilemaps and not <
+*Levels: clicking when mask enabled crashed b/c mouseOverObject null
+*Monsters: capped flower bonus to 10 in initializer
+*Sprites: X,Y coord controls not being enabled for gridplane molds
+*Sprites: selected tiles not being nulled when changing mold index
+*Sprites: issues with tile_index being set to -1 sometimes
+*Sprites: mold image scrollbars constantly resetting
+*Sprites: modified graphics storing to memory even if not saving
+
+
+v3.8.2 (2011-09-30)
+--------------------------------------
+Additions:
+*Monsters: history remembers nodes clicked
+*Settings: option to remember last loaded indexes
+
+Fixes:
+*Not creating LunarCompress.dll if needed when auto-loading editor data
+*Animations: not remembering last loaded animation index (does for category)
+*Monsters: psychopath TextChanged not invoked if initial monster not Terrapin
+*Monsters: problem trying to DrawItem in spell or attack name of "Do Nothing"
+*Spells: description TextChanged not invoked if initial spell a monster spell
+*Spells: toolstrip above description textbox wasn't being disabled/enabled
+
+
+v3.8.1 (2011-09-20)
+--------------------------------------
+Editor-specific changes:
+*World Maps: warning doesn't pop up anymore when editing map point names
+
+Additions:
+*Audio: remembers last loaded sample index
+*Audio: added 32000 Hz as default, and a custom sample rate setting
+*Dialogues: show/hide text and grid for battle dialogue image
+*World Maps: added label showing characters left for map point name
+
+Fixes:
+*Audio: radio buttons for 22050 Hz and 44100 Hz were switched around
+*Audio: exporting samples should have been exporting to selected Hz rate
+*Battlefields: only six palettes should be loading and saving, not seven
+*Dialogues: when assembling, tileset wasn't being drawn to raw byte array
+*Dialogues: checksum should read battle dialogue tileset not dialogue
+*Effects: when assembling, tileset wasn't being drawn to raw byte array
+*Levels: tile editor button now disables/enables when lock editing changed
+*Sprites: crash when dragging selected tiles which overflowed boundaries
+*World Maps: flipped and priority 1 status redundant in tile editor
+*World Maps: maximum map point index should have been 55
+
+
+v3.8 (2011-09-06)
+--------------------------------------
+Editor-specific changes:
+*Effects: tile shift left/up changed to X,Y
+*Formations: click/drag monsters now much faster
+*Levels: click/drag exits, events, npcs, overlaps now much faster
+*Levels: levels load much faster now b/c of method for clearing arrays
+*Levels: show/hide solidity automatically shows/hides solidity tileset
+*Levels: find-in-tileset now determines by pixel the exact tile clicked
+*Settings: removed "remember last loaded level", it is now default
+*Sprites: click/drag tiles now much faster
+*World Maps: horizontal/vertical changed to X,Y; uses +/- values
+*World Maps: click/drag map points a little faster
+
+Additions:
+*Most editors now automatically load last viewed index
+*Event Scripts: navigation buttons let user move back/forth between scripts
+*Levels: create a tile mod from a selection
+*Levels: can click/drag tile and solid mods
+*Levels: pasted/moved selection tagged with "click/drag" label
+*Levels: can easily resize mask with click/drag of mask edges
+*Levels: navigation buttons let user move back/forth between levels
+*Main: History button in main form shows past actions (ie. clicked controls)
+*Palette Editor: now able to modify individual rows/columns
+*Patches: ability to click direct link to IPS patch file
+*Restore: added restore for tile mods and solid mods
+*World Maps: click/drag the map to change X,Y position
+
+Fixes:
+*Some palette/graphics editors needed to be disposed b/c crashing
+*Battlefields: issues with dragging selection and then changing index
+*Dialogues: issues with retaining an empty page after clearing it
+*Effects: importing reading from effect index and not image index
+*Effects: problems with selecting, dragging, pasting and copy buffers
+*Effects: problems with clicking buttons, button resetting, etc.
+*Effects: minimum width/height of molds should be 1
+*Effects: clear effects passing index instead of image num as parameter
+*Effects: issues with realignment of frames when width/height changed
+*Effects: pasted/dragged selection not finalizing when changing mold index
+*Import/Export: now cancels import if opened file not correct data type
+*Import/Export: not resetting index of imported level elements
+*Main Title: crash when dragging selection beyond lower edges
+*Levels: crash when open level previewer b/c null form
+*Levels: solid mods, not reading from correct map (solidity, not mods)
+*Levels: crash when try to draw tile chunk beyond tile mod's boundaries
+*Levels: eliminated flickering of level image with simple foolproof method
+*Levels: not checking if enough space for tile/solid mods before saving
+*Levels: map destination items in exit tab double-tagged with index
+*Levels: edit all layers button unchecks when other buttons checked
+*Levels: problems with clicking buttons, button resetting, etc.
+*Levels: crash when dragging tileset selection beyond lower edges
+*Levels: pasted/dragged selection not nulling after changing level
+*Patches: extremely slow patch retrieval from server b/c web proxy not null
+*Settings: custom ROM directory not being loaded into textbox
+*Sprites: clear function for animations wasn't even written at all
+*Sprites: flipping tiles not registering as a change to prompt save
+*Sprites: long standing problem with assembler making copies of copies
+*Sprites: moving tiles not set as false when mouse button released
+*World Maps: crash when dragging selection beyond lower edges
+*World Maps: crash when dragging map point beyond image boundaries
+*World Maps: resetting map point not redrawing map points on image
+
+
+v3.7 (2011-08-27)
+--------------------------------------
+General changes:
+*Custom exception window shows event history and provides link to report
+*Text dumps now tagged with ROM name at beginning
+
+Editor-specific changes:
+*Effects: resizing mold now pads/crops and retains original tilemap
+*Effects: importing images now more efficient; changed to import to tilemaps
+*Monsters: changed flower odds to % format out of 100%, max is 100%
+*Sprites: no longer need to make a selection to mirror/invert tiles
+
+Additions:
+*Always on top optional for graphics and palette editor windows
+*Dialogues: two more variables for showing time and game slot name
+*Effects: reverse frames button allows user to switch order of all frames
+*Effects: clean unused animation data button will free up thousands of bytes
+*Sprites: reverse frames button allows user to switch order of all frames
+
+Fixes:
+*Dialogues: buttons for pause frames and memory variable not showing
+*Effects: not reading correct index from selected tiles in tileset
+*Effects: pasted tiles in mold not always being cemented when needed
+*Effects: importing images or changing frame mold not updating frame images
+*Event Scripts: loading uneditable scripts was permanently disabling commands
+*Graphics Editor: problem with editing pixels when width not at 16 tiles
+*Graphics Editor: overflow (boundary) errors with continguous fill function
+*Levels: changing width/height of tilemap mod when alternate exists
+*Levels: exit destination needed to be tagged with index
+*Levels: changing properties of overlaps not redrawing level image
+*Levels: solidity was not nonserialized for level templates; saving crash
+*Levels: drawing template crashed b/c loading tilemap before template
+*Levels: was able to draw outside of solid mod boundaries/box
+*Levels: solid tile index maximum was supposed to be 1023, not 1024
+*Levels: mask was not drawing to correct size when zoomed in
+*Monsters: opening hacking tools after closing threw exception
+*Monsters: allegedly DrawItem caused crash b/c out of bounds index
+*Palette Editor: exporting palette not exporting all rows
+*Previewer: level previewer listbox labels not showing correct source level
+*Previewer: animation previewer was changing editor class and not raw ROM
+*Settings: backup rom directory being set from wrong control
+*Sprites: dragging selection beyond top & left boundaries crashed image
+
+
+v3.6.1 FINAL (2011-08-04)
+--------------------------------------
+Editor-specific changes:
+*Audio: added link to Audacity download; improved importing tips
+*Notes: elements now a listview, with sortable columns
+
+Additions:
+*Dialogues: search window now has replace all feature
+*Items: can change list order of items in shops
+*Levels: bytes left labels for tilemap & solidity mods tab
+*Levels: can now undo/redo changes to solidity mods
+*Monsters: hacking tools lets user edit either current or all monsters
+*Notes: uses checksum to see if changes made
+*Search: window now has close button in upper-right corner
+
+Fixes:
+*Graphics Editor: importing image not drawing to correct coordinates
+*Hex Editor button was enabled when no ROM loaded
+*Lunar Compress.dll not being created when Attacks & Items editors opened
+*Palette Editor: changed RGB values being ignored by effects changes
+*Animations: moving commands not modifying checksum, changes always saved
+*Dialogues: resetting font character not redrawing font table image
+*Dialogues: checksum not including battle messages, other fonts & palettes
+*Effects: effect properties weren't saving (everything else was, though)
+*Event Scripts: selecting a node not properly updating the command listboxes
+*Event Scripts: bad label for transfer/shift to isometric coords command
+*Event Scripts: a node must be selected to do an action; checked not enough!
+*Event Scripts: was showing initial symbol for item names in treeview
+*Levels: mask and screen window size not consistent with zoom status
+*Levels: selecting a "set mod" in solid or tilemap mods crashed level image
+*Levels: refreshing solid mods disabling updatingLevel instead of Properties
+*Levels: deleting last solid or tile mod not updating image
+*Levels: zooming caused keystroke shortcuts to be disabled temporarily
+*Levels: using keystroke shortcuts ignored "Lock tileset editing" option
+*Levels: tilemap & solidity mods width/height minimum should be 1, not 0
+*Levels: initial checksum calculating before finished loading everything
+*Levels: tiles array not complementing changed solidity mod width/height
+*Levels: adding tilemap mod "set" mod creating array for only layer 1
+*Levels: if NPC/event # plus NPC/event #+ > 4095 = thrown exception
+*Levels: solidity mod X coord maximum should be 31
+*Levels: bytes left label for tile & solid mods not updating sometimes
+*Notes: address and bit not loading when index changed
+*Previewer: item previewer not storing item to right address for .zst
+*Sprites: resetting a sprite was not resetting palette and graphics changes
+*Sprites: trying to add a frame to empty sequence threw exception
+
+
+v3.6 FINAL (2011-06-11)
+--------------------------------------
+General changes:
+*Cleaned up the source code; moved resources into individual folders
+
+Editor-specific changes:
+*Battle Scripts: spell, attack, item lists now drawn with game's font
+*Damage Calculator: better labelling and organization
+*Levels: separated solidity and tilemap undo/redo stacks
+*Sprites: sprites in sequence frames all zoomed to normal size now
+*Palette Editor: brightness can now go from -248 to 248
+
+Additions:
+*Animations: previewer for item, spell, and attack animations
+*Audio: added guide to importing a WAV file of user's choosing
+*Damage Calculator: ability to switch attacker and target stats
+*Event Scripts: goto offset context-menu for action scripts pointer commands
+*Levels: fill tiles contiguously with edit-all-layers-simultaneously support
+*Levels: level info viewer shows offsets of elements for a level
+*Levels: solidity set image updates when solid tile properties changed
+*Levels: reset button for solid tile editor
+*Levels: numerized some lists in the maps tab
+*Levels: added label showing tile index # for tileset on mouseover
+*Monsters: right-click goto battle dialogue and goto event for battlescripts
+*Palette Editor: new colorize feature added under effects tab
+*Sprites: gridlines for tileset's tile in zoom box
+
+Fixes:
+*When closing a ROM, it closes ROM even if an editor window is still open
+*Allies: new game inventory stats not updating if Mario not selected
+*Battle Scripts: cut icon off of item names b/c were showing box character
+*Battlefields: dragging a selection beyond map bounds threw exception
+*Damage Calculator: target stats not updating when level changed
+*Damage Calculator: changing from ally to monster not updating monster stats
+*Dialogues: hitting ctrl+any other key modifies duplicate dialogues
+*Effects: dragging a selection beyond map bounds threw exception
+*Effects: animation not playing back with correct durations
+*Event Scripts: changing commands in large scripts took extremely long
+*Event Scripts: wrong labelling for bytes left and hex labels
+*Event Scripts: goto dialogue threw exception if dialogue window closed
+*Event Scripts: fixed some inaccurate command labelling
+*Hex Editor: doesn't close like other editors when opening a new ROM
+*Levels: changing NPC engage type wasn't updating some properties in NPC class
+*Levels: opening clear window threw an exception; trying to GetType() of null
+*Levels: dragging a selection in tileset beyond image bounds threw exception
+*Levels: changing gfx sets or tilesets would reset any changes made to tilemap
+*Levels: click/drag solid tile before cementing moved tiles shrunk solid map
+*Levels: partitions search not closing with level window
+*Levels: solidity tiles now save changes
+*Levels: tilemap L3 list names being added twice
+*Levels: import level data wasn't importing overlaps
+*Levels: import level data wasn't setting ROM data for level element classes
+*Levels: object tag coord placement not accommodating zoom status
+*Levels: error creating new object, zoomed in, and scrolled far right/bottom
+*Levels: right-click zoom out/in was showing context menu too
+*Main Title: dragging a selection beyond map bounds threw exception
+*Monsters: cancelling monster stats closing but not battle scripts has issues
+*Palettes: default white color above color map throwing an exception if set
+*Previewer: entrance event results in event previewer not loading right level
+*Shops: controls not updating when shop index changed
+*Space Analyzer: wouldn't open; threw exception because of coloring values
+*Sprites: selecting beyond tileset bounds broke the zoom panel image
+*Sprites: animation not playing back with correct durations
+*Sprites: threw exception if try to draw frame w/mold index beyond mold count
+*Sprites: last row in tileset wasn't showing in zoom box
+*Sprites: tileset selection box showing sometimes for gridplane molds
+*Sprites: context menu for mold image interfering with dragging tiles
+*Sprites: importing/exporting read from sprite index instead of animation
+*Sprites: dragging a selection beyond mold image boundaries corrupted image
+*World Maps: dragging a selection beyond map bounds threw exception
+*World Maps: run event control being casted as byte instead of ushort
+
+
+v3.5 BETA (2011-04-01)
+--------------------------------------
+General changes:
+*Changed target framework to NET 2.0
+*Closing editors w/o making any changes no longer prompts for save
+*Drop-down list backgrounds now drawn with game's menu background graphics
+*Model class now more easily accessible static class
+*Most panels are now Fixed3D appearance
+*Reset option in many editors to undo all changes to a current element
+*Search field in most editors now visible by default
+*Searching now has match case and match whole word options
+
+Editor-specific changes:
+*Animation Scripts: text dump now tags scripts with names of spell, item, etc.
+*Battle Scripts: moved battle scripts editor to monsters editor
+*Event Scripts: command category now just one listbox, saves space
+*Levels: color gradient effect on object fields and solidity map
+*NPC Editor: can now search for NPCs w/sprite w/o modifying current NPC sprite
+*Scripts: command color-coding for event and battle script editors is lighter
+*Solid Tiles: solid tile searcher and viewer now far more versatile & superior
+*Space analyzer: now one listbox, easier to manage and clearer
+
+Additions:
+***Hex editor with typical features like search, fill, copy/paste, etc***
+*Animations: added a few more descriptions for commands
+*Clearing: option to clear unused graphic sets
+*Damage Calculator: calculate damage of spells or an attack based on stats
+*Event Scripts: right-click-go-to options for jump to/run event commands
+*Graphic Editor: fill/paint bucket feature, contiguous and non-contiguous
+*Hacking Tools: auto-hack creation tools, like raising/lowering monster stats
+*Levels: export/import level architecture allows porting maps from other games
+*Levels: can now see how many bytes left for NPC's, events, exits, overlaps
+*Levels: can export a selection (one layer only) as a battlefield
+*Levels: can now edit solidity properties of a tile
+*Levels: NPC, event, exit fields display information tags next to field on map
+*Levels: jump to destination, event or formation on right-click of objects
+*Levels: option to lock tileset editing; avoid annoyances w/accidental moving
+*Levels: auto-update option and manual update for tileset editing
+*Levels: export all images with option to crop to mask edges
+*Levels: can now toggle view of priority 1 for solidity map tiles
+*Levels: click/drag solid tiles makes editing solidity map remarkably easier
+*Palette Editor: import/export palette feature added back on
+*Previewer: option to set (ie. raise) level of party members from 1 to 30
+*Previewer: option to set equipment of party members
+*Settings: option to remember and load last viewed level
+*Sprites: export all molds of each sprite as individual sprite sheet images
+*Sprites: added back option to incrementally adjust X,Y coord of tiles
+
+Fixes:
+*Allies: XP needed wasn't updating if Mario not selected
+*Battle Scripts: cut icon off of spell names b/c were showing box character
+*Clearing: clearing current for solidity and battlefields not working
+*Dialogues: couldn't draw to lower-right region of overworld font characters
+*Dialogues: battle dialogue search crashing b/c casting instead of ToString()
+*Effects: cancelling import into tileset threw exception--reading null image
+*Graphic Editor: clear function (right-click) wasn't even written at all
+*Levels: graphics weren't saving after editing in graphic editor
+*Levels: graphics weren't saving to ROM b/c edit flag not set
+*Levels: palettes and graphics were saving when choosing not to save on close
+*Levels: moving tiles in tileset was resetting edits within tilemap
+*Levels: scrollbars were resetting when changing window focus
+*Levels: free space calculation for objects confused memory of current object
+*Levels: issues with toggle off for selection and pasting
+*Levels: event goto button for NPCs wasn't disabling if battle trigger type
+*Levels: copy/paste then enable solidity or objects shrinks inside selection
+*Levels: undo/redo not working for solidity map editing; stack not updating
+*Levels: copy/paste tiles in tileset not updating pasted tile's internal index
+*Levels: erasing w/edit all layers simultaneously not always working
+*Levels: using wrong updating bool for individual properties
+*Levels: priority 1 tint not updating after undo/redo
+*NPC editor: search button wasn't doing anything
+*Previewer: was loading level exit source and not level trying to preview
+*Previewer: edit flags being reset, so issues with previewing more than once
+*Script Editors: editing script no longer causes blinking/flickering
+*Search Solid Tiles: selecting item in results listbox threw exception
+*Sprites: dragging tiles past boundaries threw an exception
+*Sprites: palette num, index, graphic set offset were not saving
+*Sprites: issues with auto-copy function; shouldn't flip copied tiles
+*Sprites: clicking tileset outside of index limit threw exception
+*Sprites: cancelling import into tileset threw exception--reading null image
+*World Maps: not saving wasn't resetting the map points
+
+
+v3.4 (2011-01-23)
+--------------------------------------
+Additions:
+*Dialogues: NEW compression table editing now supported
+*Palette Editor: NEW threshold adjustment feature
+
+General changes:
+*Dotted pattern for cartographic grid
+
+Editor-specific changes:
+*Levels: moved the level event and music to the level's toolstrip
+*Previewer: now remembers battlefield, allies in party, and max out stats
+*Sprites: zoom box for tilemap mold tileset now shows only tile mouse is over
+
+Fixes:
+*Dialogues: importing a font table image wasn't drawing based on max width
+*Levels: solidity maps weren't resetting when level editor closed w/o saving
+*Palette Editor: resetting was updating too many times, slowed down CPU
+*Palette Editor: equate & switch RGB was updating twice, slowed down CPU
+*Previewer: problems with allies in party not saving to right offsets
+*Sprites: tileset zoom box problems with tilesets less than 3 rows
+*Sprites: tile index label in graphics editor/viewer off by 1
+*Sprites: palettes weren't saving
+*Sprites: graphics had several issues when saving/not saving
+*Sprites: hover box for tilemap molds offset by a few pixels
+
+
+v3.3a (2011-01-21)
+--------------------------------------
+Editor-specific changes:
+*Effects: import into tileset feature allows forced import of images
+*Sprites: can now edit subtiles in a mold's tile(s)
+*Sprites: added zoom box for tileset (only for tilemap molds)
+*Sprites: import feature for importing images into gridplane molds
+
+Fixes:
+*Battlefields: reset function in Graphics and Palette editors buggy
+*Editors: editors weren't resetting when 'x' clicked
+*Dialogues: error when switching between font tables if new font table opened
+*Dialogues: problem with free space calculation affecting index switching
+*Levels: double-clicking invoked drag function
+*Levels: moving tiles in tileset wasn't always updating tilemap
+*Levels: tile editor wasn't loading tiles from current layer in tileset
+*Main Title: tile editor wasn't updating title preview image
+*Palette Editor: controls weren't resetting when window closed
+*Palette Editor: equate RGB controls weren't resetting
+*Sprites: inverting a sprite wasn't doing anything
+*Tile Editor: mirror/invert whole 16x16 wasn't reloading subtile changes
+*Tile Editor: reset wasn't working for Levels editor
+
+
+v3.2a (2011-01-11)
+--------------------------------------
+General changes:
+*Now everything really, truly works in a 32 AND 64-bit environment
+*Updated home page link and version/copyright info
+*Default visual theme is now System instead of Standard
+*Added Lunar Compress.dll to the resources; generates automatically
+*Added RomPreviewBaseSave files to resources; generates automatically
+
+Fixes:
+*Battle Scripts: inserting commands in deeply nested scripts was buggy
+*Dialogues: characters left wasn't correct for other banks
+*Levels: physical maps weren't saving to ROM
+*Palette Editor: equate RGB function wasn't working
+
+
+v3.2.0b (2010-08-22)
+--------------------------------------
+General changes:
+*Can now use all editors in 64-bit OS w/o need of corflags
+
+Editor-specific changes:
+*Audio: NEW audio sample player, importer and exporter
+*Formations: pack set removed because not necessary
+*Levels: NEW tile and solidity modifications editors
+
+Fixes:
+*Effects editor now closes when closing all editors at once
+*Editor windows and search windows now close when closing an editor
+*Palette editor: fixed problems with RGB controls
+*Allies: DUMMY spells now save
+*Attacks: set maximum index to correct value for attacks and spells
+*Dialogues: set maximum index to correct value for battle messages
+*Items: set maximum index to correct value
+*Levels: tilesets weren't saving
+*Tilesets: switching layers before deselecting a dragged selection crashed the editor
+
+
+v3.0.1b (2010-07-26)
+--------------------------------------
+Fixes:
+*Major bug involving saving after an editor window has been closed
+*Publish button in main form didn't do anything special, so it's been removed
+
+
+v3.0b (2010-07-25)
+--------------------------------------
+General changes:
+*Each editor is in a separate window, with some exceptions
+*Icon buttons with 18x18 images instead of menustrips
+*GUI style generally utilizes Fixed3D borders now
+*No more timing editor since it has been moved into separate editors
+*Areas used for drawing are larger and easier to work in
+*Previewer doesn't have unnecessary button options for assembling
+*Sub-editors within an editor's window can be toggled on/off
+
+General additions:
+*Importing and exporting for all elements of the editor.
+*One-click load-all editors
+*One-click minimize and restoration of all editor windows
+*Dockability inside the main form for all editors
+*Reload a loaded ROM file
+*Close a loaded ROM file
+*Settings window containing editor's preferences
+*Universal graphics editor with image importing
+*Universal palette editor with color balance manipulation
+*Universal search function with movable sizeable window
+
+Editor-specific changes:
+*Allies: defense timing has been moved into this editor
+*Attacks: spell timing has been moved into this editor
+*Battlefields: entire battlefield displayed, no need for scrolling
+*Dialogues: icons instead of a listbox for inserting symbols
+*Dialogues: font character image width is sized based on width value
+*Effects: molds are editable like a level's tilemap
+*Items: weapon timing has been moved into this editor
+*Items: item description shows always, no need for toggle option
+*Sprites: tileset for tilemap format molds works like a level tileset
+*World Maps: when viewing locations, map transforms to correct size
+
+Editor-specific additions:
+*Battlefields: expanded base of drawing functions for editing tileset
+*Dialogues: search function for battle dialogues
+*Dialogues: show BG color option for font editor
+*Dialogues: battle dialogues can now be dumped to a text file
+*Effects: expanded base of drawing functions for editing molds
+*Effects: images are shown for a sequence's frames
+*Effects: duplicate functions for molds, frames
+*Effects: show BG color option
+*Levels: select multiple physical tiles
+*Levels: duplicate function for NPCs
+*Levels: copy, paste, duplicate functions for exits, events, overlaps
+*Levels: expanded base of drawing functions for editing tilesets
+*Levels: boundary box for viewing in-game boundaries
+*Levels: mirror and invert a selection of 16x16 tiles in a tileset
+*Main Title: expanded base of drawing functions for editing tilesets
+*Sprites: expanded base of drawing functions for editing molds
+*Sprites: images are shown for a sequence's frames
+*Sprites: duplicate functions for molds, sequences, frames
+*Sprites: zoom box for mold editor
+*Sprites: show BG color option
+*World Maps: expanded base of drawing functions for editing maps
+
+Notes on palette editor:
+*Brightness and contrast effects can be applied to any palette in the editor.
+*Grayscale and negative image effects are available in the palette editor.
+*Along with the original RGB switching and equating options, color balance can be manipulated.
+*A paint editor-like color spectrum chart is available for selecting various colors.
+
+Notes on graphic editor:
+*A second color can be selected for use with drawing using the right-click button.
+
+
+v2.5b (2010-06-05)
+--------------------------------------
+Additions:
+***Sprites: main title screen editor, cannot edit palettes yet, can import/export images***
+*Drawing class to provide image conversion functions for all editors
+*Levels: templates now show an image of the template in the window
+*Sprites: view tile # when mouse moves over effect tileset
+
+Fixes:
+*Levels: npc's speed+ control had no ceiling value
+*Sprites: map point names are read/saved using respective keystroke table
+
+Changes:
+*Removed "color" from palette editors, organized controls in palette editors
+*Sprites: map point names are shown using font table
+
+
+v2.4b (2010-05-31)
+--------------------------------------
+Changes:
+*Names of items,spells,attacks,monsters are read from 3 diff keystroke tables
+*Removed notes textboxes because can now use database, moved controls around
+
+Additions:
+***Notes database builder, right click menus or values to add elements to DB***
+*Warning when trying to run in 64-bit OS
+
+Fixes:
+*Settings weren't saving every time they should
+*Scripts: right-clicking "Run dialogue" node wouldn't always open the menu
+*Scripts: updating problem when editing memory commands in battle scripts
+*Stats: timing for Ultra Jumps was saving wrong
+
+
+v2.3b (2010-05-23)
+--------------------------------------
+Changes:
+*Clearing elements now more versatile, can clear within range now
+*Everything is in decimal now (except for a few things like memory addresses)
+*Import/export uses new window
+*Levels: progress bar for importing/exporting now separate window, used by events too
+
+Additions:
+*Base conversion tool for converting between hexadecimal and decimal
+*Tool to quickly import elements from other ROM
+*Scripts: pointer recalibration tool for adding/subtracting from pointers en masse
+
+Fixes:
+*Scripts: wrong indexes assigned to some commands in list
+*Sprites: problems adding/removing sequences,frames,molds,etc.
+
+
+v2.2
+--------------------------------------
+Changes:
+*Changed almost all indexes to decimal (ie. level, sprite #'s are in decimal)
+*Option of dumping NPC, event/action script text to a specific directory
+*Levels: edit NPCs auto-loads current NPC ID into the sub-editor
+*Scripts: event, battle, and action scripts are exported to much smaller binaries
+
+Additions:
+*Base convertor for converting hex to/from decimal
+*Element importer; can import elements en masse from another ROM
+*Press F2 in any editor for a label showing a hex <> dec conversion for values
+*Preview support for SNES9X; must manually load save however
+*SNES9X support for previewing
+*Levels: more editing options for editing NPCs
+
+Fixes:
+*Levels: no precautionary checks of free space of objects when importing level data
+*Levels: not setting current exit when changing exit field type
+*Scripts: some text and labels were inaccurate, also sound & music names show in treeview
+*Sprites: exporting/importing world map palettes was very buggy
+*Sprites: should be able to edit event # to run instead of generic map point destination
+
+
+v2.1.1 (2010-03-18)
+--------------------------------------
+Fixes:
+*Stats: some errors in level-up stat saving
+
+
+v2.1
+--------------------------------------
+Additions:
+***Scripts: animation script editor for several types of animations***
+***Sprites: a spell effect editor***
+*An optional Help Tip label that shows when the mouse moves over a control
+*Export/import features remember last used directory
+*Levels: 16x16 tile editor is now a panel that can be easily accessed through toggle
+*Levels: a quick jump to event and action script editor from NPC's - click the buttons
+*Levels: a quick jump to event editor from entrance event and event field event
+*Levels: a template system for inserting objects composed of 3 layers and a physical layer
+*Levels: color math can be applied to battlefield palettes
+*Levels: copy/paste NPC's between levels with C and V keys
+*Levels: edit all layers (ie. cut, copy, paste, delete all layers simultaneously)
+*Levels: graphic set exporting; go to File > Export > Graphic Sets...
+*Levels: graphic set importing for .gif/.jpg/.png files
+*Levels: graphic set painting in 16x16 tile editor
+*Levels: importing/exporting arrays
+*Levels: inserting new NPCs/fields sets coords near top-left visible bounds of level image
+*Levels: option to clear all unused tilesets, tilemaps, and physical maps
+*Levels: overlaps are now drawn on the level image when toggled on
+*Levels: zoom pan box for level image
+*Main: "Load Last Used ROM" in "Settings" menu loads the last used ROM if checked
+*Scripts: a quick jump to dialogue editor - right click "Run dlg" commands
+*Scripts: event and action scripts can be assigned labels for easy ID'ing
+*Scripts: scrollbar position of command trees now stays fixed when modifying commands
+*Sprites: can mirror/invert font characters
+*Sprites: color math commands for sprite and effect palettes
+*Sprites: dialogue buttons are drawn from ROM data instead of embedded .gifs
+*Sprites: effects - import an external image file into the tileset
+*Sprites: Font characters not usable by default are now usable, except '[' (Character #59)
+*Sprites: pop-up window for dialogue "Delay..." and "Variable..." is now a panel
+*Sprites: removed all dialogue character buttons, can insert by right-clicking font table
+*Sprites: user can now add a keystroke assignment to each font character
+*Sprites: user can now edit battle messages (e.g. "Hit Y repeatedly!", etc...)
+*Stats: formation pack searching
+*Stats: name lists are drawn with the game's font
+*Stats: preview for item and spell descriptions (like the dialogue preview)
+*Stats: search function for Formation Packs with formation(s) containing a certain monster
+*Stats: spells learned on level-up can now be edited
+*Stats: target arrow cursor positioning for monsters in battle
+*Stats: target cursor (the red arrow) position editing for monsters
+
+Fixes:
+*palette colors weren't being read correctly
+*Levels: changing destination type for exit might crash if index above item count
+*Levels: doing Undo/Redo while moving a tile selection had unorthodox results
+*Levels: problem drawing molds outside of the mold index range for NPC's
+*Scripts: adding new command in battle scripts placed it before the selected node
+*Sprites: IMAGE GRAPHICS Offset wasn't changing when changing IMAGE #
+*Sprites: inserting a new tile to molds listed after null molds caused a crash
+*Sprites: inserting/deleting molds wasn't optimized
+*Stats: issue with level-up bonus controls
+*Stats: item names wouldn't save if the icon value was >= 0x18
+*Stats: NEW LINE and END button functions for item descriptions were reversed
+*Stats: psychopath message was being saved to the item description and vice versa
+*Stats: reading effect type for spells was incorrect; label texts weren't updating
+*Stats: saving issue with inflict element for spells
+*Stats: some timing controls and variables were redundant, so they were removed
+*Stats: starting coins/frog coins were being read as bytes instead of ushorts
+*Stats: starting items weren't even saving!
+
+
+v1.0 (2009-01-22)
+--------------------------------------
+***Premiere release of Lazy Shell***
